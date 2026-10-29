@@ -4,7 +4,7 @@ import api from '../api/axios';
 
 export default function RatingSummary({
   targetId,
-  role, // 'ngo' or 'donor'
+  role,
   initialData,
   title = 'Reputation & Ratings',
   compact = false,
@@ -89,7 +89,7 @@ export default function RatingSummary({
           }}
           title="No ratings received yet"
         >
-          ⭐ <span style={{ opacity: 0.8 }}>New</span>
+          ⭐ <span style={{ opacity: 0.7 }}>New</span>
         </span>
       );
     }
@@ -229,7 +229,8 @@ export default function RatingSummary({
                     {star}★
                   </span>
 
-                  {/* Progress Bar Container */}
+                  
+                  
                   <div
                     style={{
                       flex: 1,

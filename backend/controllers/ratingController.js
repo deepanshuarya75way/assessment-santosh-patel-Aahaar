@@ -16,9 +16,8 @@ export const isCompletedStatus = (status) => {
   return ["COMPLETED", "DONE", "FULFILLED"].includes(s);
 };
 
-/**
- * Resolve participant identities from a donation document
- */
+
+
 export const resolveDonationParticipants = async (donation) => {
   let donorId = null;
   let ngoId = null;

@@ -25,7 +25,7 @@ const ratingSchema = new mongoose.Schema(
       required: true,
       enum: ["User", "Ngo"],
     },
-    // User who receives the notification (donor user or NGO representative user)
+   
     recipientUser: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -58,7 +58,7 @@ const ratingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Compound unique index ensuring one rating per reviewer per donation
+
 ratingSchema.index({ donation: 1, reviewer: 1 }, { unique: true });
 
 // Performance indexes for summaries and reviews

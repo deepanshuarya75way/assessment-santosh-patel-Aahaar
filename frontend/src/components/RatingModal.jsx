@@ -15,7 +15,7 @@ export default function RatingModal({
   isOpen,
   onClose,
   donation,
-  userRole = 'donor', // 'donor' rating NGO or 'ngo' rating donor
+  userRole = 'donor',
   recipientName = '',
   onSuccess,
 }) {
@@ -30,7 +30,10 @@ export default function RatingModal({
   const shortId = String(donationId).slice(-8).toUpperCase();
   const isDonorRatingNgo = userRole === 'donor';
 
-  // Extract food items summary
+
+
+
+  
   const items = donation.foodItemDetails || donation.foodItemsNeeded || [];
   const itemsSummary = items
     .map((it) => `${it.foodName} (${it.quantity}${it.quantityType || 'kg'})`)
