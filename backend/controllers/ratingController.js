@@ -7,14 +7,15 @@ import User from "../models/userModel.js";
 import NgoFoodRequest from "../models/ngoFoodRequestModel.js";
 import { notify } from "../services/notification.service.js";
 
-/**
- * Helper to determine if a status string signifies donation completion
- */
+
+
+
 export const isCompletedStatus = (status) => {
   if (!status) return false;
   const s = String(status).trim().toUpperCase();
   return ["COMPLETED", "DONE", "FULFILLED"].includes(s);
 };
+
 
 
 
@@ -124,7 +125,8 @@ export const createRating = asyncHandler(async (req, res) => {
     throw new Error("Donation not found");
   }
 
-  // Check completion status
+
+  
   if (!isCompletedStatus(donation.status)) {
     res.status(400);
     throw new Error("Cannot rate an incomplete or unverified donation");
@@ -140,6 +142,7 @@ export const createRating = asyncHandler(async (req, res) => {
   const currentUserId = req.user._id.toString();
 
   // Determine reviewer role and recipient
+
   let reviewerRole = null;
   let recipient = null;
   let recipientModel = null;
@@ -175,7 +178,8 @@ export const createRating = asyncHandler(async (req, res) => {
       recipientUser = new mongoose.Types.ObjectId(participants.donorId);
       recipientName = participants.donorName;
 
-      // Self-rating check
+      
+
       if (currentUserId === participants.donorId) {
         res.status(400);
         throw new Error("You cannot rate yourself");
